@@ -1,0 +1,14 @@
+
+Library/
+Temp/
+Logs/
+Builds/
+
+*.sln
+*.csproj
+*.pidb
+
+
+*.unityproj
+*.unitypackage
+*.meta
