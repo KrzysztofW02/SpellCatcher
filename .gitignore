@@ -1,0 +1,14 @@
+
+SpellCatcher/Library/
+SpellCatcher/Temp/
+SpellCatcher/Logs/
+SpellCatcher/Builds/
+
+*.sln
+*.csproj
+*.pidb
+
+
+*.unityproj
+*.unitypackage
+*.meta
