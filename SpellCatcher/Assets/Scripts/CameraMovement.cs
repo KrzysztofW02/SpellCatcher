@@ -51,7 +51,7 @@ public class CameraMovement : MonoBehaviour
 
     IEnumerator TransitionCamera()
     {
-        float elapsedTime = 0.75f;
+        float elapsedTime = 0f;
         Vector3 startPosition = Camera.transform.position;
 
         while (elapsedTime < TransitionTime)
