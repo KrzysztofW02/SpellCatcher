@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomCreator : MonoBehaviour
 {
     public GameObject EmptyRoomPrefab;
+    public List<GameObject> EnemiesList = new List<GameObject>();
     private Vector3 emptyRoomPosition;
     public GameObject RoomPrefab;
     private Vector3 roomPosition;
@@ -37,5 +38,20 @@ public class RoomCreator : MonoBehaviour
         GameObject newRoomInstance = Instantiate(RoomPrefab, roomPosition, roomRotation);
         GameObject newEmptyRoom = Instantiate(EmptyRoomPrefab, emptyRoomPosition, roomRotation);
         Destroy(transform.parent.parent.gameObject);
+        AddEnemies(roomPosition);
+    }
+
+    void AddEnemies(Vector2 PositionOfRoomCenter) 
+    {
+        int EnemiesNumber = Random.Range(1,5);
+        for (int i = 0; i < EnemiesNumber; i++)
+        {
+            GameObject enemy = EnemiesList[Random.Range(0, EnemiesList.Count)];
+            Debug.Log(Random.Range(1, EnemiesList.Count)-1);
+            Vector2 SpawnPosition = PositionOfRoomCenter;
+            SpawnPosition.x += (Random.Range(0,10)-5f);
+            SpawnPosition.y += Random.Range(0f,7f)-3.5f;
+            Instantiate(enemy, SpawnPosition, new Quaternion(0,0,0,0));
+        }
     }
 }
