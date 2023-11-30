@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnamyBaseMovement : MonoBehaviour
+public class EnemyBaseMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     private Vector2 playerPosition;
     private GameObject playerObject;
     private Rigidbody2D RigidBody;
-    public float moveSpeed = 3f;
+    public float moveSpeed = 2f;
     void Start()
     {
         playerObject = GameObject.FindGameObjectWithTag("Player");
