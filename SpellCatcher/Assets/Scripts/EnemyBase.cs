@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    public int EnemyMaxHp;
-    public int EnemyHP;
+    public int EnemyMaxHp = 10;
+    public int EnemyHP = 10;
 
     private Renderer rend;
     private EnemyBaseMovement movementScript;
@@ -13,8 +13,6 @@ public class EnemyBase : MonoBehaviour
     private RoomCreator roomCreator;
     void Start()
     {
-        EnemyMaxHp = 10;
-        EnemyHP = EnemyMaxHp;
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -31,7 +29,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (EnemyHP <= 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
             roomCreator.DestroyEnemy();
         }
     }

@@ -135,9 +135,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EmptyRoomPrefab: {fileID: 0}
   EnemiesList:
-  - {fileID: 8941701790122413106, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
   - {fileID: 8941701790122413106, guid: 7d4cb4f051f402942863c0531b7c7248, type: 3}
   RoomPrefab: {fileID: 4389049972274816472, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+  RoomClosedPrefab: {fileID: 0}
+  roomLevel: {fileID: 0}
 --- !u!1 &8385392698344348787
 GameObject:
   m_ObjectHideFlags: 0

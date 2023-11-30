@@ -71,6 +71,10 @@ public class RoomCreator : MonoBehaviour
             SpawnPosition.x += (Random.Range(0, 10) - 5f);
             SpawnPosition.y += Random.Range(0f, 7f) - 3.5f;
             Instantiate(enemy, SpawnPosition, new Quaternion(0, 0, 0, 0));
+
+            Transform child = enemy.transform.GetChild(0);
+            child.GetComponent<EnemyBase>().EnemyMaxHp = 10 + LevelRoom;
+            child.GetComponent<EnemyBase>().EnemyHP = child.GetComponent<EnemyBase>().EnemyMaxHp;
         }
     }
 
