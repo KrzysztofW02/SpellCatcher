@@ -435,6 +435,10 @@ PrefabInstance:
       propertyPath: EmptyRoomPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: 3f38ffdfffef1f8448e7b362a40b10b7, type: 3}
+    - target: {fileID: 2080193253402617196, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: RoomClosedPrefab
+      value: 
+      objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
     - target: {fileID: 4389049972274816472, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
       propertyPath: m_Name
       value: Room
@@ -443,6 +447,10 @@ PrefabInstance:
       propertyPath: EmptyRoomPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: 3f38ffdfffef1f8448e7b362a40b10b7, type: 3}
+    - target: {fileID: 4879445002341973253, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: RoomClosedPrefab
+      value: 
+      objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
     - target: {fileID: 5948083469786057295, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -491,10 +499,18 @@ PrefabInstance:
       propertyPath: EmptyRoomPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: 3f38ffdfffef1f8448e7b362a40b10b7, type: 3}
+    - target: {fileID: 6526261258867897269, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: RoomClosedPrefab
+      value: 
+      objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
     - target: {fileID: 7737081416861141430, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
       propertyPath: EmptyRoomPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: 3f38ffdfffef1f8448e7b362a40b10b7, type: 3}
+    - target: {fileID: 7737081416861141430, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: RoomClosedPrefab
+      value: 
+      objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

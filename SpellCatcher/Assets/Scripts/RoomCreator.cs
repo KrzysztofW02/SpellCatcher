@@ -10,9 +10,8 @@ public class RoomCreator : MonoBehaviour
     public GameObject RoomPrefab;
     private Vector3 roomPosition;
     private Quaternion roomRotation;
+    public GameObject RoomClosedPrefab;
 
-    private int enemiesNumber;
-    private GameObject newEmptyRoom2;
 
     void Start()
     {
@@ -41,14 +40,13 @@ public class RoomCreator : MonoBehaviour
         emptyRoomPosition = transform.parent.parent.position;
         GameObject newRoomInstance = Instantiate(RoomPrefab, roomPosition, roomRotation);
         GameObject newEmptyRoom = Instantiate(EmptyRoomPrefab, emptyRoomPosition, roomRotation);
-        newEmptyRoom2 = Instantiate(EmptyRoomPrefab, roomPosition, roomRotation);
-        newEmptyRoom.transform.parent = newRoomInstance.transform;
+        GameObject newClosedRoom = Instantiate(RoomClosedPrefab, roomPosition, roomRotation);
         Destroy(transform.parent.parent.gameObject);
-        enemiesNumber = AddEnemies(roomPosition);
+        AddEnemies(roomPosition);
     }
 
 
-    int AddEnemies(Vector2 PositionOfRoomCenter)
+    void AddEnemies(Vector2 PositionOfRoomCenter)
     {
         int EnemiesNumber = Random.Range(1, 5);
         for (int i = 0; i < EnemiesNumber; i++)
@@ -59,15 +57,6 @@ public class RoomCreator : MonoBehaviour
             SpawnPosition.x += (Random.Range(0, 10) - 5f);
             SpawnPosition.y += Random.Range(0f, 7f) - 3.5f;
             Instantiate(enemy, SpawnPosition, new Quaternion(0, 0, 0, 0));
-        }
-        return EnemiesNumber;
-    }
-
-    void Update()
-    {
-        if (enemiesNumber <= 0)
-        {
-            Destroy(newEmptyRoom2);
         }
     }
 }

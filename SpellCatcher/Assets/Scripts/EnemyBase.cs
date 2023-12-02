@@ -12,7 +12,7 @@ public class EnemyBase : MonoBehaviour
     private Rigidbody2D rb;
     void Start()
     {
-        EnemyMaxHp = 15;
+        EnemyMaxHp = 10;
         EnemyHP = EnemyMaxHp;
         StartCoroutine(ExecuteFunctionEverySecond());
         rend = GetComponent<Renderer>();
