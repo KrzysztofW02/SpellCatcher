@@ -14,20 +14,16 @@ public class EnemyBase : MonoBehaviour
     {
         EnemyMaxHp = 10;
         EnemyHP = EnemyMaxHp;
-        StartCoroutine(ExecuteFunctionEverySecond());
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody2D>();
 
         movementScript = GetComponent<EnemyBaseMovement>();
     }
 
-    IEnumerator ExecuteFunctionEverySecond()
+    public void TakeDamage(int damage)
     {
-        while (true)
-        {
-            StartCoroutine(DamageRecived(1));
-            yield return new WaitForSeconds(1.0f);
-        }
+        EnemyHP -= damage;
+        StartCoroutine(DamageRecived(1));
     }
     void Update()
     {
@@ -45,7 +41,7 @@ public class EnemyBase : MonoBehaviour
             float initialSpeed = movementScript.moveSpeed;
             movementScript.moveSpeed = 0;
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.5f);
 
             movementScript.moveSpeed = initialSpeed;
         }

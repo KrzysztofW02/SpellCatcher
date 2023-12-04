@@ -37,13 +37,17 @@ public class RoomCreator : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        emptyRoomPosition = transform.parent.parent.position;
-        GameObject newRoomInstance = Instantiate(RoomPrefab, roomPosition, roomRotation);
-        GameObject newEmptyRoom = Instantiate(EmptyRoomPrefab, emptyRoomPosition, roomRotation);
-        GameObject newClosedRoom = Instantiate(RoomClosedPrefab, roomPosition, roomRotation);
-        Destroy(transform.parent.parent.gameObject);
-        AddEnemies(roomPosition);
+        if (other.CompareTag("Player"))
+        {
+            emptyRoomPosition = transform.parent.parent.position;
+            GameObject newRoomInstance = Instantiate(RoomPrefab, roomPosition, roomRotation);
+            GameObject newEmptyRoom = Instantiate(EmptyRoomPrefab, emptyRoomPosition, roomRotation);
+            GameObject newClosedRoom = Instantiate(RoomClosedPrefab, roomPosition, roomRotation);
+            Destroy(transform.parent.parent.gameObject);
+            AddEnemies(roomPosition);
+        }
     }
+
 
 
     void AddEnemies(Vector2 PositionOfRoomCenter)

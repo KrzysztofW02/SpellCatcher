@@ -175,6 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d510cc67aaff545a7f31a978b88ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyMaxHp: 0
+  EnemyHP: 0
 --- !u!114 &6942756281537225187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +201,7 @@ GameObject:
   - component: {fileID: 5002243073172294297}
   m_Layer: 0
   m_Name: EnemyBase
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

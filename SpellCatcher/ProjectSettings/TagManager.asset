@@ -10,6 +10,7 @@ TagManager:
   - CameraMoveLeft
   - Enemy
   - EmptyRoom
+  - Wall
   layers:
   - Default
   - TransparentFX
