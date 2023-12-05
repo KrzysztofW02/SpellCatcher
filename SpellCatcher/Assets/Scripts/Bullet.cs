@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        if (collision.CompareTag("Wall"))
+        if (collision.CompareTag("Wall") || collision.CompareTag("CameraMoveRight") || collision.CompareTag("CameraMoveLeft") || collision.CompareTag("CameraMoveTop") || collision.CompareTag("CameraMoveBottom"))
         {
             Destroy(gameObject);
         }
