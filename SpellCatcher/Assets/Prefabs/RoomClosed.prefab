@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438004412747240845}
-  - component: {fileID: 9171891306524971227}
+  - component: {fileID: 8556131179938887984}
   m_Layer: 0
   m_Name: RoomClosed
   m_TagString: Untagged
@@ -170,7 +170,7 @@ Transform:
   - {fileID: 126570054498884291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9171891306524971227
+--- !u!114 &8556131179938887984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,11 +179,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2939452843583612654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d510cc67aaff545a7f31a978b88ae2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9740d5f12dcc35f4383db0349902a68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMaxHp: 0
-  EnemyHP: 0
 --- !u!1 &3528024826217981650
 GameObject:
   m_ObjectHideFlags: 0

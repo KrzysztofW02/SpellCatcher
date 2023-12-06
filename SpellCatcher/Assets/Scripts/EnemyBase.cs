@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour
     private Renderer rend;
     private EnemyBaseMovement movementScript;
     private Rigidbody2D rb;
+    private RoomCreator roomCreator;
     void Start()
     {
         EnemyMaxHp = 10;
@@ -18,6 +19,7 @@ public class EnemyBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         movementScript = GetComponent<EnemyBaseMovement>();
+        roomCreator = FindObjectOfType<RoomCreator>();
     }
 
     public void TakeDamage(int damage)
@@ -30,6 +32,7 @@ public class EnemyBase : MonoBehaviour
         if (EnemyHP <= 0)
         {
             Destroy(gameObject);
+            roomCreator.DestroyEnemy();
         }
     }
 

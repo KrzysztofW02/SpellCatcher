@@ -11,6 +11,7 @@ public class RoomCreator : MonoBehaviour
     private Vector3 roomPosition;
     private Quaternion roomRotation;
     public GameObject RoomClosedPrefab;
+    public static int EnemiesNumber;
 
 
     void Start()
@@ -52,7 +53,7 @@ public class RoomCreator : MonoBehaviour
 
     void AddEnemies(Vector2 PositionOfRoomCenter)
     {
-        int EnemiesNumber = Random.Range(1, 5);
+        EnemiesNumber = Random.Range(1, 5);
         for (int i = 0; i < EnemiesNumber; i++)
         {
             GameObject enemy = EnemiesList[Random.Range(0, EnemiesList.Count)];
@@ -62,5 +63,16 @@ public class RoomCreator : MonoBehaviour
             SpawnPosition.y += Random.Range(0f, 7f) - 3.5f;
             Instantiate(enemy, SpawnPosition, new Quaternion(0, 0, 0, 0));
         }
+    }
+
+    public int DestroyEnemy()
+    {
+        EnemiesNumber--;
+        return EnemiesNumber;
+    }
+
+    public int NumberOfEnemies()
+    {
+        return EnemiesNumber;
     }
 }
