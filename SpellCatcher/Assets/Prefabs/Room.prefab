@@ -1139,6 +1139,14 @@ PrefabInstance:
       propertyPath: RoomPrefab
       value: 
       objectReference: {fileID: 4389049972274816472}
+    - target: {fileID: 5937447601032698396, guid: fc6bca72dd3d70f46833438814d98b1d, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5937447601032698396, guid: fc6bca72dd3d70f46833438814d98b1d, type: 3}
+      propertyPath: EnemiesList.Array.data[2]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     - target: {fileID: 7145531011408650816, guid: fc6bca72dd3d70f46833438814d98b1d, type: 3}
       propertyPath: m_Name
       value: RightGate
@@ -1165,6 +1173,14 @@ PrefabInstance:
       propertyPath: RoomPrefab
       value: 
       objectReference: {fileID: 4389049972274816472}
+    - target: {fileID: 1976532335026599677, guid: 3d22894ff19e9ba4a928ef85202464ed, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976532335026599677, guid: 3d22894ff19e9ba4a928ef85202464ed, type: 3}
+      propertyPath: EnemiesList.Array.data[2]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     - target: {fileID: 8385392698344348787, guid: 3d22894ff19e9ba4a928ef85202464ed, type: 3}
       propertyPath: m_Name
       value: LeftGate
@@ -1283,6 +1299,14 @@ PrefabInstance:
       propertyPath: RoomPrefab
       value: 
       objectReference: {fileID: 4389049972274816472}
+    - target: {fileID: 9085618724848311387, guid: 84f536c270e8111438a88d50412267ea, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085618724848311387, guid: 84f536c270e8111438a88d50412267ea, type: 3}
+      propertyPath: EnemiesList.Array.data[2]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1349,6 +1373,14 @@ PrefabInstance:
       propertyPath: RoomPrefab
       value: 
       objectReference: {fileID: 4389049972274816472}
+    - target: {fileID: 3790256173272966506, guid: e4797fcaa1d5e904994b6cc37cb5e182, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3790256173272966506, guid: e4797fcaa1d5e904994b6cc37cb5e182, type: 3}
+      propertyPath: EnemiesList.Array.data[2]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     - target: {fileID: 7535055724245428752, guid: e4797fcaa1d5e904994b6cc37cb5e182, type: 3}
       propertyPath: m_Name
       value: TopGate
