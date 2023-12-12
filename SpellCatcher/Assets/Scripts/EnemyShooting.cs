@@ -21,17 +21,13 @@ public class EnemyShooting : MonoBehaviour
     IEnumerator Firebullet()
     {
         waiting = true;
-        // Pobierz pozycj� myszy w przestrzeni �wiata gry
         Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
-        playerPosition.z = 0f; // Ustaw z na 0, aby utrzyma� wszystko na p�aszczy�nie gry
+        playerPosition.z = 0f; 
 
-        // Oblicz kierunek od strza�u do pozycji myszy
         Vector3 shootDirection = (playerPosition - shootingPoint.position).normalized;
 
-        // Oblicz k�t obrotu kulki na podstawie kierunku
         float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
 
-        // Stw�rz kul�, ustawiaj�c jej pozycj�, obr�t i pr�dko��
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0f, 0f, angle));
         if(bullet != null)
         {
