@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public int HP;
     public int MaxHP = 15;
+    public float Energy;
+    public float MaxEnergy = 5;
     
     public GameOver GameOver;
     

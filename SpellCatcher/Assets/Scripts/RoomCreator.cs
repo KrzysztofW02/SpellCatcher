@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class RoomCreator : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class RoomCreator : MonoBehaviour
     private Quaternion roomRotation;
     public GameObject RoomClosedPrefab;
     public static int EnemiesNumber;
+    public static int LevelRoom;
+    public TextMeshProUGUI roomLevel;
+
 
 
     void Start()
@@ -44,8 +49,12 @@ public class RoomCreator : MonoBehaviour
             GameObject newRoomInstance = Instantiate(RoomPrefab, roomPosition, roomRotation);
             GameObject newEmptyRoom = Instantiate(EmptyRoomPrefab, emptyRoomPosition, roomRotation);
             GameObject newClosedRoom = Instantiate(RoomClosedPrefab, roomPosition, roomRotation);
+            Transform newRoomTransform = newRoomInstance.transform;
             Destroy(transform.parent.parent.gameObject);
             AddEnemies(roomPosition);
+            LevelRoom += 1;
+            roomLevel.text = "Room: " + LevelRoom.ToString();
+            Debug.Log("Room: " + LevelRoom);
         }
     }
 
