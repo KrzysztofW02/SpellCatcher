@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpellCatcher : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public Player player;
+    public EnergyBar energyBar;
+
+    public void SpellCatched()
     {
-        if (collision.CompareTag(""))
-        {
-            //Destroy(gameObject);
-        }
+        player.Energy += 1;
+        Debug.Log("Energy" + player.Energy);
+        energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
     }
 }

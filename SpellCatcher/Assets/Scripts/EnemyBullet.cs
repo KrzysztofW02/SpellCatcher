@@ -7,6 +7,8 @@ public class EnemyBullet : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private bool spacePressed = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,16 @@ public class EnemyBullet : MonoBehaviour
         {
             Debug.Log("spell catched");
             Destroy(gameObject);
+
+            SpellCatcher spellCatcher = collision.GetComponent<SpellCatcher>();
+            if (spellCatcher != null)
+            {
+                spellCatcher.SpellCatched();
+            }
+            else
+            {
+                Debug.LogWarning("SpellCatcher component not found on the collided object.");
+            }
         }
     }
 

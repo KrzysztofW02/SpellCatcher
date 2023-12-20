@@ -8,11 +8,19 @@ public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     public int HP;
-    public int MaxHP = 50;
+    public int MaxHP = 15;
+    public float Energy;
+    public float MaxEnergy = 5;
+    
     public GameOver GameOver;
+    
+    public GameObject[] Enemies; 
+
+    public HealthBar healthBar;
     void Start()
     {
         HP = MaxHP;
+        healthBar = GetComponentInChildren<HealthBar>();
     }
 
     // Update is called once per frame
@@ -21,11 +29,14 @@ public class Player : MonoBehaviour
         if (HP == 0)
         {
             GameOver.Setup();
-            //Time.timeScale = 0f;
+            Destroy(gameObject);
+            Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in Enemies) {Destroy(enemy);}
         }
     }
     public void TakeDamage(int damage)
     {
         HP -= damage;
+        healthBar.UpdateHealthBar(HP, MaxHP);
     }
 }
