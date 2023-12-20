@@ -43,12 +43,16 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (spacePressed && collision.CompareTag("SpellCatcher"))
+        SpellCatcher spellCatcher =  collision.GetComponent<SpellCatcher>();
+
+        if (spacePressed && collision.CompareTag("SpellCatcher") && spellCatcher.IsOnCooldown == false)
         {
+            spellCatcher.IsUsed();
+
+
             Debug.Log("spell catched");
             Destroy(gameObject);
 
-            SpellCatcher spellCatcher = collision.GetComponent<SpellCatcher>();
             if (spellCatcher != null)
             {
                 spellCatcher.SpellCatched();
