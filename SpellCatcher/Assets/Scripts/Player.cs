@@ -39,4 +39,14 @@ public class Player : MonoBehaviour
         HP -= damage;
         healthBar.UpdateHealthBar(HP, MaxHP);
     }
+
+    public void Heal(int heal)
+    {
+        if (HP + heal > MaxHP)
+            HP = MaxHP;
+        else
+            HP += heal;
+
+        healthBar.UpdateHealthBar(HP, MaxHP);
+    }
 }

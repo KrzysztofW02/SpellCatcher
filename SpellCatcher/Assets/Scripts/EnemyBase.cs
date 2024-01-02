@@ -6,11 +6,13 @@ public class EnemyBase : MonoBehaviour
 {
     public int EnemyMaxHp = 10;
     public int EnemyHP = 10;
+    public GameObject MedKit;
 
     private Renderer rend;
     private EnemyBaseMovement movementScript;
     private Rigidbody2D rb;
     private RoomCreator roomCreator;
+
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -29,6 +31,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (EnemyHP <= 0)
         {
+            if(Random.Range(0,100)<50)
+                Instantiate(MedKit, transform.position, Quaternion.identity);
             Destroy(gameObject.transform.parent.gameObject);
             roomCreator.DestroyEnemy();
         }
