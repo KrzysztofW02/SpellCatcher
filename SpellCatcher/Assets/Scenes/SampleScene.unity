@@ -1954,6 +1954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1164809656}
   energyBar: {fileID: 82864580}
+  IsOnCooldown: 0
 --- !u!1 &1579513343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2125,14 @@ PrefabInstance:
       propertyPath: RoomClosedPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
+    - target: {fileID: 2080193253402617196, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080193253402617196, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.data[1]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     - target: {fileID: 4389049972274816472, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
       propertyPath: m_Name
       value: Room
@@ -2140,6 +2149,14 @@ PrefabInstance:
       propertyPath: RoomClosedPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
+    - target: {fileID: 4879445002341973253, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879445002341973253, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.data[1]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     - target: {fileID: 5948083469786057295, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2196,6 +2213,14 @@ PrefabInstance:
       propertyPath: RoomClosedPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
+    - target: {fileID: 6526261258867897269, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526261258867897269, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.data[1]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     - target: {fileID: 7737081416861141430, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
       propertyPath: roomLevel
       value: 
@@ -2208,6 +2233,14 @@ PrefabInstance:
       propertyPath: RoomClosedPrefab
       value: 
       objectReference: {fileID: 2939452843583612654, guid: ad7bb6976dee9b240ac6cda240ce7682, type: 3}
+    - target: {fileID: 7737081416861141430, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737081416861141430, guid: be50240a586108144abe2071b1fdd3d3, type: 3}
+      propertyPath: EnemiesList.Array.data[1]
+      value: 
+      objectReference: {fileID: 3866200111625580897, guid: d4f75ae3a8a571d4db3fc8365b78d0be, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
