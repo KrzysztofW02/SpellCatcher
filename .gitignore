@@ -6,6 +6,7 @@ SpellCatcher/Builds/
 *.sln
 *.csproj
 *.pidb
+*.log
 
 
 *.unityproj
