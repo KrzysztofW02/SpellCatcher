@@ -7,6 +7,7 @@ using TMPro;
 public class RoomCreator : MonoBehaviour
 {
     public GameObject EmptyRoomPrefab;
+    public GameObject CratePrefab;
     public List<GameObject> EnemiesList = new List<GameObject>();
     private Vector3 emptyRoomPosition;
     public GameObject RoomPrefab;
@@ -51,7 +52,34 @@ public class RoomCreator : MonoBehaviour
             GameObject newClosedRoom = Instantiate(RoomClosedPrefab, roomPosition, roomRotation);
             Transform newRoomTransform = newRoomInstance.transform;
             Destroy(transform.parent.parent.gameObject);
+
+            //Adding crates to room
+            for (int i = 0; i < 4; i++)
+            {
+                //Create first crate
+                Vector2 FirstCratePosition = roomPosition;
+                FirstCratePosition.x += (Random.Range(0, 10) - 5f);
+                FirstCratePosition.y += Random.Range(0, 7) - 3.5f;
+                Instantiate(CratePrefab, FirstCratePosition, new Quaternion(0, 0, 0, 0));
+
+                //Create more crates adjacent to first crate
+                Vector2 CratePosition = FirstCratePosition;
+                while (Random.Range(0, 10) < 5)
+                {
+                    //Chech if crate is not in the wall
+                    if(CratePosition.x < roomPosition.x - 8.5f || CratePosition.x > roomPosition.x + 8.5f || CratePosition.y < roomPosition.y - 4.5f || CratePosition.y > roomPosition.y + 4.5f)
+                    {
+                        continue;
+                    }
+                    int[] upOrDown = {-1,1};
+                    CratePosition.x += upOrDown[Random.Range(0, 2)];
+                    CratePosition.y += upOrDown[Random.Range(0, 2)];
+                    Instantiate(CratePrefab, CratePosition, new Quaternion(0, 0, 0, 0));
+                }
+            }
+
             AddEnemies(roomPosition);
+
             LevelRoom += 1;
             roomLevel.text = "Room: " + LevelRoom.ToString();
             Debug.Log("Room: " + LevelRoom);
