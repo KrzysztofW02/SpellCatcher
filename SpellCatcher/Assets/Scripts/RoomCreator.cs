@@ -15,9 +15,6 @@ public class RoomCreator : MonoBehaviour
     private Quaternion roomRotation;
     public GameObject RoomClosedPrefab;
     public static int EnemiesNumber;
-    public static int LevelRoom;
-    public TextMeshProUGUI roomLevel;
-
 
 
     void Start()
@@ -98,9 +95,6 @@ public class RoomCreator : MonoBehaviour
             SpawnPosition.y += Random.Range(0f, 7f) - 3.5f;
             Instantiate(enemy, SpawnPosition, new Quaternion(0, 0, 0, 0));
 
-            Transform child = enemy.transform.GetChild(0);
-            child.GetComponent<EnemyBase>().EnemyMaxHp = 10 + LevelRoom;
-            child.GetComponent<EnemyBase>().EnemyHP = child.GetComponent<EnemyBase>().EnemyMaxHp;
         }
     }
 
