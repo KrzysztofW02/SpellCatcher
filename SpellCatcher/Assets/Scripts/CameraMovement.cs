@@ -16,11 +16,12 @@ public class CameraMovement : MonoBehaviour
     {
         Renderer renderer = other.GetComponent<Renderer>();
 
-        if (!renderer.isVisible && !isTransitioning)
+        if (renderer != null && !renderer.isVisible && !isTransitioning)
         {
             MoveCamera(other.gameObject.tag);
         }
     }
+
 
     void MoveCamera(string direction)
     {

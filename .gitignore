@@ -2,6 +2,7 @@ SpellCatcher/Library/
 SpellCatcher/Temp/
 SpellCatcher/Logs/
 SpellCatcher/Builds/
+SpellCatcher/UserSettings/Layouts
 
 *.sln
 *.csproj
