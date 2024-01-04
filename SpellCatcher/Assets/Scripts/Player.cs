@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HP == 0)
+        if (HP == 0 || HP < 0)
         {
             GameOver.Setup();
             Destroy(gameObject);
