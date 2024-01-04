@@ -8,6 +8,7 @@ SpellCatcher/UserSettings/Layouts
 *.csproj
 *.pidb
 *.log
+*.dwlt
 
 
 *.unityproj
