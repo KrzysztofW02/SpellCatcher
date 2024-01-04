@@ -5,18 +5,25 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     public int EnemyMaxHp = 10;
-    public int EnemyHP = 10;
+    public int EnemyHP;
     public GameObject MedKit;
+    public int MedKitDropChance;
 
     private Renderer rend;
     private EnemyBaseMovement movementScript;
     private Rigidbody2D rb;
     private RoomCreator roomCreator;
+    private GameObject player;
+    private int roomNumber;
 
     void Start()
     {
+        roomNumber = GameObject.FindWithTag("GameController").GetComponent<GameInfo>().RoomNumber;
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
+        EnemyMaxHp += roomNumber;
+        EnemyHP = EnemyMaxHp;
 
         movementScript = GetComponent<EnemyBaseMovement>();
         roomCreator = FindObjectOfType<RoomCreator>();
@@ -25,22 +32,24 @@ public class EnemyBase : MonoBehaviour
     public void TakeDamage(int damage)
     {
         EnemyHP -= damage;
-        StartCoroutine(DamageRecived(1));
+        StartCoroutine(DamageRecived());
     }
     void Update()
     {
         if (EnemyHP <= 0)
         {
-            if(Random.Range(0,100)<50)
+            //Give player EXP
+            player.GetComponent<Player>().AddExperience(5*roomNumber);
+
+            if(Random.Range(0,100)<MedKitDropChance)
                 Instantiate(MedKit, transform.position, Quaternion.identity);
             Destroy(gameObject.transform.parent.gameObject);
             roomCreator.DestroyEnemy();
         }
     }
 
-    IEnumerator DamageRecived(int damageAmount)
+    IEnumerator DamageRecived()
     {
-        EnemyHP -= 1;
         if(movementScript != null)
         {
             float initialSpeed = movementScript.moveSpeed;

@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public int MaxHP = 15;
     public float Energy;
     public float MaxEnergy = 5;
+    public int Level = 1;
+    public int Experience = 0;
     
     public GameOver GameOver;
     
@@ -48,5 +50,14 @@ public class Player : MonoBehaviour
             HP += heal;
 
         healthBar.UpdateHealthBar(HP, MaxHP);
+    }
+    public void AddExperience(int exp)
+    {
+        Experience += exp;
+        if (Experience >= 50*Level)
+        {
+            Level++;
+            Experience = 0;
+        }
     }
 }

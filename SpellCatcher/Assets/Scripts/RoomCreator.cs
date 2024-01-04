@@ -67,7 +67,7 @@ public class RoomCreator : MonoBehaviour
                 while (Random.Range(0, 10) < 5)
                 {
                     //Chech if crate is not in the wall
-                    if(CratePosition.x < roomPosition.x - 8.5f || CratePosition.x > roomPosition.x + 8.5f || CratePosition.y < roomPosition.y - 4.5f || CratePosition.y > roomPosition.y + 4.5f)
+                    if(CratePosition.x < roomPosition.x - 7.5f || CratePosition.x > roomPosition.x + 7.5f || CratePosition.y < roomPosition.y - 3.5f || CratePosition.y > roomPosition.y + 3.5f)
                     {
                         continue;
                     }
@@ -80,9 +80,7 @@ public class RoomCreator : MonoBehaviour
 
             AddEnemies(roomPosition);
 
-            LevelRoom += 1;
-            roomLevel.text = "Room: " + LevelRoom.ToString();
-            Debug.Log("Room: " + LevelRoom);
+            GameObject.FindWithTag("GameController").GetComponent<GameInfo>().NewRoomEntered();
         }
     }
 
@@ -101,7 +99,7 @@ public class RoomCreator : MonoBehaviour
             Instantiate(enemy, SpawnPosition, new Quaternion(0, 0, 0, 0));
 
             Transform child = enemy.transform.GetChild(0);
-            child.GetComponent<EnemyBase>().EnemyMaxHp = child.GetComponent<EnemyBase>().EnemyMaxHp + child.GetComponent<EnemyBase>().EnemyMaxHp / 10 *LevelRoom;
+            child.GetComponent<EnemyBase>().EnemyMaxHp = 10 + LevelRoom;
             child.GetComponent<EnemyBase>().EnemyHP = child.GetComponent<EnemyBase>().EnemyMaxHp;
         }
     }

@@ -178,6 +178,7 @@ MonoBehaviour:
   EnemyMaxHp: 0
   EnemyHP: 0
   MedKit: {fileID: 869307377377926057, guid: cab617cb72a616c41a592d80dcf8439d, type: 3}
+  MedKitDropChance: 5
 --- !u!114 &3533676192321225153
 MonoBehaviour:
   m_ObjectHideFlags: 0
