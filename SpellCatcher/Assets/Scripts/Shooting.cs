@@ -6,11 +6,13 @@ public class Shoot : MonoBehaviour
 {
     public Transform shootingPoint;
     public GameObject bulletPrefab;
+    public Player player;
+    public EnergyBar energyBar;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && player.Energy > 0)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0f; 
@@ -21,6 +23,8 @@ public class Shoot : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0f, 0f, angle));
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<Bullet>().speed;
+            player.Energy -= 1;
+            energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
         }
     }
 
