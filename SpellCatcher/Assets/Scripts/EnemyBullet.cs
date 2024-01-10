@@ -31,7 +31,7 @@ public class EnemyBullet : MonoBehaviour
             Player player = collision.GetComponent<Player>();
             if (player != null)
             {
-                player.TakeDamage(5);
+                player.TakeDamage(1);
             }
             Destroy(gameObject);
         }

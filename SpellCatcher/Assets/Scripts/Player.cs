@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     public int HP;
-    public int MaxHP = 15;
+    public int MaxHP = 5;
     public float Energy;
     public float MaxEnergy = 5;
     public int Level = 1;
     public int Experience = 0;
+    public int Power = 1;
+    public int StatPoints = 0;
     
     public GameOver GameOver;
     
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
         if (Experience >= 50*Level)
         {
             Level++;
+            StatPoints++;
             Experience = 0;
         }
     }

@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 public class Shoot : MonoBehaviour
 {
     public Transform shootingPoint;
     public GameObject bulletPrefab;
     public Player player;
     public EnergyBar energyBar;
+    public Button[] statButtons; 
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && player.Energy > 0)
+        if (Input.GetMouseButtonDown(0) && player.Energy > 0 && !IsPointerOverStatButtons())
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f; 
+            mousePosition.z = 0f;
 
             Vector3 shootDirection = (mousePosition - shootingPoint.position).normalized;
 
@@ -28,4 +30,35 @@ public class Shoot : MonoBehaviour
         }
     }
 
+    private bool IsPointerOverStatButtons()
+    {
+        foreach (Button statButton in statButtons)
+        {
+            if (IsPointerOverButton(statButton))
+            {
+                return true; 
+            }
+        }
+
+        return false; 
+    }
+
+    private bool IsPointerOverButton(Button button)
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject == button.gameObject)
+            {
+                return true; 
+            }
+        }
+
+        return false;
+    }
 }
