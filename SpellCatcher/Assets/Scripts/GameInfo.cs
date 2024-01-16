@@ -28,10 +28,12 @@ public class GameInfo : MonoBehaviour
         PlayerLevel.text = player.Level.ToString();
         Experience.text = player.Experience.ToString();
         StatPoints.text = player.StatPoints.ToString();
+        UpdateButtonVisibility();
     }
 
     public void Start()
     {
+
         Button button = HPButton.GetComponent<Button>();
         if (button != null)
         {
@@ -58,6 +60,13 @@ public class GameInfo : MonoBehaviour
         //Increase displyed room number
         roomLevel.text = "Room: " + RoomNumber.ToString();
 
+    }
+
+    private void UpdateButtonVisibility()
+    {
+        HPButton.gameObject.SetActive(player.StatPoints > 0);
+        EnergyButton.gameObject.SetActive(player.StatPoints > 0);
+        PowerButton.gameObject.SetActive(player.StatPoints > 0);
     }
     public void OnHPButtonClick()
     {
