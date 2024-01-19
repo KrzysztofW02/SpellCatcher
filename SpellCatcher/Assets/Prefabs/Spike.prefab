@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   damageInterval: 1
-  detectionRadius: 1.5
+  detectionRadius: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
