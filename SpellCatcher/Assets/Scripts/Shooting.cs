@@ -10,24 +10,45 @@ public class Shoot : MonoBehaviour
     public GameObject bulletPrefab;
     public Player player;
     public EnergyBar energyBar;
-    public Button[] statButtons; 
+    public Button[] statButtons;
+    public Animator playerAnimator; 
+
+    private bool isAttacking = false;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && player.Energy > 0 && !IsPointerOverStatButtons())
+        if (Input.GetMouseButtonDown(0) && player.Energy > 0 && !IsPointerOverStatButtons() && !isAttacking)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
-
-            Vector3 shootDirection = (mousePosition - shootingPoint.position).normalized;
-
-            float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
-
-            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0f, 0f, angle));
-            bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<Bullet>().speed;
-            player.Energy -= 1;
-            energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
+            StartCoroutine(ShootAndAnimate());
         }
+    }
+
+    IEnumerator ShootAndAnimate()
+    {
+        isAttacking = true;
+
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f;
+
+        Vector3 shootDirection = (mousePosition - shootingPoint.position).normalized;
+
+        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0f, 0f, angle));
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<Bullet>().speed;
+        player.Energy -= 1;
+        energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("IsAttack", true);
+
+            yield return new WaitForSeconds(0.1f);
+
+            playerAnimator.SetBool("IsAttack", false);
+        }
+
+        isAttacking = false;
     }
 
     private bool IsPointerOverStatButtons()
@@ -36,11 +57,11 @@ public class Shoot : MonoBehaviour
         {
             if (IsPointerOverButton(statButton))
             {
-                return true; 
+                return true;
             }
         }
 
-        return false; 
+        return false;
     }
 
     private bool IsPointerOverButton(Button button)
@@ -55,7 +76,7 @@ public class Shoot : MonoBehaviour
         {
             if (result.gameObject == button.gameObject)
             {
-                return true; 
+                return true;
             }
         }
 
