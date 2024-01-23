@@ -10,6 +10,8 @@ public class SpellCatcher : MonoBehaviour
     public float CooldownTime = 1f;
     public List<GameObject> TriggerList = new List<GameObject>();
 
+    public Animator animator;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsOnCooldown == false)
@@ -56,6 +58,11 @@ public class SpellCatcher : MonoBehaviour
             Debug.Log("Energy" + player.Energy);
             energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
             IsUsed();
+
+            if (animator != null)
+            {
+                animator.SetBool("IsSpellCatcher", true);
+            }
         }
     }
     public void IsUsed()
@@ -66,6 +73,12 @@ public class SpellCatcher : MonoBehaviour
     {
         IsOnCooldown = true;
         yield return new WaitForSeconds(CooldownTime);
+
+        if (animator != null)
+        {
+            animator.SetBool("IsSpellCatcher", false);
+        }
+
         IsOnCooldown = false;
         Debug.Log("cooldown");
     }

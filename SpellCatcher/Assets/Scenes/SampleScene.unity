@@ -4939,7 +4939,6 @@ GameObject:
   - component: {fileID: 1164809648}
   - component: {fileID: 1164809650}
   - component: {fileID: 1164809652}
-  - component: {fileID: 1164809651}
   - component: {fileID: 1164809653}
   - component: {fileID: 1164809654}
   - component: {fileID: 1164809655}
@@ -5037,41 +5036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
---- !u!58 &1164809651
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164809647}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &1164809652
 Rigidbody2D:
   serializedVersion: 4
@@ -5098,7 +5062,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1164809653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5240,8 +5204,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025997799, y: -0.3119722}
-  m_Size: {x: 0.5112432, y: 0.87521243}
+  m_Offset: {x: -0.010348002, y: -0.3328387}
+  m_Size: {x: 0.4799436, y: 0.8334796}
   m_Direction: 0
 --- !u!1 &1257322427
 GameObject:
@@ -6380,8 +6344,9 @@ MonoBehaviour:
   player: {fileID: 1164809656}
   energyBar: {fileID: 82864580}
   IsOnCooldown: 0
-  CooldownTime: 5
+  CooldownTime: 1
   TriggerList: []
+  animator: {fileID: 1164809657}
 --- !u!1 &1439817487
 GameObject:
   m_ObjectHideFlags: 0

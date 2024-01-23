@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
     public Player player;
     public EnergyBar energyBar;
     public Button[] statButtons;
-    public Animator playerAnimator; 
+    public Animator playerAnimator;
 
     private bool isAttacking = false;
 
@@ -34,22 +34,22 @@ public class Shoot : MonoBehaviour
 
         float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
 
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("IsAttack", true);
+            yield return new WaitForSeconds(0.5f); 
+            playerAnimator.SetBool("IsAttack", false);
+        }
+
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0f, 0f, angle));
         bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<Bullet>().speed;
         player.Energy -= 1;
         energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
 
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetBool("IsAttack", true);
-
-            yield return new WaitForSeconds(0.1f);
-
-            playerAnimator.SetBool("IsAttack", false);
-        }
-
         isAttacking = false;
     }
+
+
 
     private bool IsPointerOverStatButtons()
     {
