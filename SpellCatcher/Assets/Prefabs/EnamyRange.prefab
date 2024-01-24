@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4633800854198658753, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
+      propertyPath: MedKitDropChance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5002243073172294297, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

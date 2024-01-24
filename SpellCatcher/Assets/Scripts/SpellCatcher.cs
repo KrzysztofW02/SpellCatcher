@@ -62,7 +62,7 @@ public class SpellCatcher : MonoBehaviour
         if (player.Energy < 5)
         {
             player.Energy += 1;
-            Debug.Log("Energy" + player.Energy);
+            //Debug.Log("Energy" + player.Energy);
             energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
 
             if (animator != null)

@@ -27,29 +27,28 @@ public class Shoot : MonoBehaviour
     {
         isAttacking = true;
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f;
-
-        Vector3 shootDirection = (mousePosition - shootingPoint.position).normalized;
-
-        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
-
         if (playerAnimator != null)
         {
             playerAnimator.SetBool("IsAttack", true);
-            yield return new WaitForSeconds(0.5f); 
+            yield return new WaitForSeconds(0.5f);
             playerAnimator.SetBool("IsAttack", false);
         }
 
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.Euler(0f, 0f, angle));
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f;
+
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+        Vector3 shootDirection = (mousePosition - shootingPoint.position).normalized;
+        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+
+        bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<Bullet>().speed;
+
         player.Energy -= 1;
         energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
 
         isAttacking = false;
     }
-
-
 
     private bool IsPointerOverStatButtons()
     {
