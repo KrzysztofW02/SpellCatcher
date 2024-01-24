@@ -12,6 +12,7 @@ TagManager:
   - EmptyRoom
   - Wall
   - SpellCatcher
+  - SRC
   layers:
   - Default
   - TransparentFX

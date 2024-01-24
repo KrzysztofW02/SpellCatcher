@@ -163,3 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingPoint: {fileID: 3487937528315663625}
   bulletPrefab: {fileID: 6197145853380177180, guid: 2b7730cb022b37c429d8a45c15a39299, type: 3}
+  src: {fileID: 0}
+  sfx1: {fileID: 8300000, guid: 84828351cb5f4df408f167776b828418, type: 3}

@@ -10,12 +10,15 @@ public class EnemyShooting : MonoBehaviour
     private bool waiting = false;
     private GameObject Enemy;
     private Animator animator;
+    private AudioSource src;
+    public AudioClip sfx1;
 
     void Start()
     {
         Enemy = transform.parent.parent.gameObject;
         Player = GameObject.FindGameObjectWithTag("Player");
         animator = transform.parent.parent.GetComponent<Animator>();
+        src = GameObject.FindGameObjectWithTag("SRC").GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -31,6 +34,8 @@ public class EnemyShooting : MonoBehaviour
         animator.SetBool("IsShooting", true);
         Enemy.GetComponent<EnemyBaseMovement>().moveSpeed = 0;
         yield return new WaitForSeconds(1.1f);
+        src.clip = sfx1;
+        src.Play();
         animator.SetBool("IsShooting", false);
         Enemy.GetComponent<EnemyBaseMovement>().moveSpeed = 2;
 

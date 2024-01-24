@@ -12,6 +12,8 @@ public class Shoot : MonoBehaviour
     public EnergyBar energyBar;
     public Button[] statButtons;
     public Animator playerAnimator;
+    public AudioSource src;
+    public AudioClip sfx1;
 
     private bool isAttacking = false;
 
@@ -26,6 +28,9 @@ public class Shoot : MonoBehaviour
     IEnumerator ShootAndAnimate()
     {
         isAttacking = true;
+
+        src.clip = sfx1;
+        src.Play();
 
         if (playerAnimator != null)
         {

@@ -152,6 +152,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 0
+  sfx1: {fileID: 0}
 --- !u!1 &3906264210154128754
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +205,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1
+  sfx1: {fileID: 8300000, guid: 0be6d61a61884044298aaf1e9abb9c90, type: 3}
 --- !u!58 &3400287806730277301
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -9,11 +9,14 @@ public class EnemySpike : MonoBehaviour
     public float detectionRadius = 1.5f;
     public LayerMask playerLayer; 
     private Animator animator;
+    private AudioSource src;
+    public AudioClip sfx1;
 
     private void Start()
     {
         InvokeRepeating("DealDamageToPlayer", 0f, damageInterval);
         animator = GetComponentInParent<Animator>();
+        src = GameObject.FindGameObjectWithTag("SRC").GetComponent<AudioSource>();
     }
 
     private void DealDamageToPlayer()
@@ -29,6 +32,8 @@ public class EnemySpike : MonoBehaviour
                 if (player != null)
                 {
                     player.TakeDamage(damage);
+                    src.clip = sfx1;
+                    src.Play();
                 }
             }
         }

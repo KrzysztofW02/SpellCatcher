@@ -11,6 +11,8 @@ public class SpellCatcher : MonoBehaviour
     public List<GameObject> TriggerList = new List<GameObject>();
 
     public Animator animator;
+    public AudioSource src;
+    public AudioClip sfx1;
 
     void Update()
     {
@@ -46,7 +48,6 @@ public class SpellCatcher : MonoBehaviour
         }
     }
 
-
     public void GetAllObjectsInTrigger()
     {
         TriggerList.Clear();
@@ -56,21 +57,30 @@ public class SpellCatcher : MonoBehaviour
             TriggerList.Add(collider.gameObject);
         }
     }
+
     public void SpellCatched()
     {
         IsUsed();
-        if (player.Energy < 5)
+        src.clip = sfx1;
+        src.Play();
+        if (animator != null)
+        {
+            animator.SetBool("IsSpellCatcher", true);
+            StartCoroutine(ResetSpellCatcherAnimation());
+        }
+        if (player.Energy < player.MaxEnergy)
         {
             player.Energy += 1;
-            //Debug.Log("Energy" + player.Energy);
             energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
-
-            if (animator != null)
-            {
-                animator.SetBool("IsSpellCatcher", true);
-            }
         }
     }
+
+    IEnumerator ResetSpellCatcherAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("IsSpellCatcher", false);
+    }
+
     public void IsUsed()
     {
         StopCoroutine("CooldownCounter");
@@ -82,12 +92,6 @@ public class SpellCatcher : MonoBehaviour
         IsOnCooldown = true;
         yield return new WaitForSeconds(CooldownTime);
 
-        if (animator != null)
-        {
-            animator.SetBool("IsSpellCatcher", false);
-        }
-
         IsOnCooldown = false;
-        //Debug.Log("cooldown");
     }
 }
