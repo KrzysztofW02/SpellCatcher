@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class GameInfo : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class GameInfo : MonoBehaviour
     public GameObject EnergyButton;
     public GameObject PowerButton;
 
+    public GameObject exitButton;
+
+    private bool isButtonVisible = false;
+
     public void Update()
     {
         MaxHp.text = player.MaxHP.ToString();
@@ -29,6 +34,20 @@ public class GameInfo : MonoBehaviour
         Experience.text = player.Experience.ToString();
         StatPoints.text = player.StatPoints.ToString();
         UpdateButtonVisibility();
+
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            isButtonVisible = !isButtonVisible;
+
+            if (isButtonVisible)
+            {
+                exitButton.SetActive(true);
+            }
+            else
+            {
+                exitButton.SetActive(false);
+            }
+        }
     }
 
     public void Start()
@@ -93,6 +112,15 @@ public class GameInfo : MonoBehaviour
             player.Power += 1;
             player.StatPoints -= 1;
         }
+    }
+
+    public void CloseGame()
+    {
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
     }
 
 }
