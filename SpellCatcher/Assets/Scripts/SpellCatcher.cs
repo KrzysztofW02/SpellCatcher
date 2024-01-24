@@ -52,12 +52,12 @@ public class SpellCatcher : MonoBehaviour
     }
     public void SpellCatched()
     {
+        IsUsed();
         if (player.Energy < 5)
         {
             player.Energy += 1;
             Debug.Log("Energy" + player.Energy);
             energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
-            IsUsed();
 
             if (animator != null)
             {

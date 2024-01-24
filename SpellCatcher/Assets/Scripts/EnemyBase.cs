@@ -15,9 +15,11 @@ public class EnemyBase : MonoBehaviour
     private RoomCreator roomCreator;
     private GameObject player;
     private int roomNumber;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         roomNumber = GameObject.FindWithTag("GameController").GetComponent<GameInfo>().RoomNumber;
         rend = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -52,11 +54,13 @@ public class EnemyBase : MonoBehaviour
     {
         if(movementScript != null)
         {
+            animator.SetBool("IsDamaged", true);
             float initialSpeed = movementScript.moveSpeed;
             movementScript.moveSpeed = 0;
 
             yield return new WaitForSeconds(0.5f);
 
+            animator.SetBool("IsDamaged", false);
             movementScript.moveSpeed = initialSpeed;
         }
     }

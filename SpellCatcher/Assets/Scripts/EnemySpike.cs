@@ -8,14 +8,17 @@ public class EnemySpike : MonoBehaviour
     public float damageInterval = 1f;
     public float detectionRadius = 1.5f;
     public LayerMask playerLayer; 
+    private Animator animator;
 
     private void Start()
     {
         InvokeRepeating("DealDamageToPlayer", 0f, damageInterval);
+        animator = GetComponentInParent<Animator>();
     }
 
     private void DealDamageToPlayer()
     {
+        StartCoroutine(Attack());
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, playerLayer);
 
         foreach (Collider2D collider in colliders)
@@ -29,5 +32,11 @@ public class EnemySpike : MonoBehaviour
                 }
             }
         }
+    }
+    private IEnumerator Attack()
+    {
+        animator.SetBool("IsAttacking", true);
+        yield return new WaitForSeconds(0.87f);
+        animator.SetBool("IsAttacking", false);
     }
 }

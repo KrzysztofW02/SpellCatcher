@@ -8,8 +8,15 @@ public class EnemyShooting : MonoBehaviour
     public GameObject bulletPrefab;
     private GameObject Player;
     private bool waiting = false;
+    private GameObject Enemy;
+    private Animator animator;
 
-    // Update is called once per frame
+    void Start()
+    {
+        Enemy = transform.parent.parent.gameObject;
+        Player = GameObject.FindGameObjectWithTag("Player");
+        animator = transform.parent.parent.GetComponent<Animator>();
+    }
     void Update()
     {
         if(waiting ==false)
@@ -21,7 +28,13 @@ public class EnemyShooting : MonoBehaviour
     IEnumerator Firebullet()
     {
         waiting = true;
-        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
+        animator.SetBool("IsShooting", true);
+        Enemy.GetComponent<EnemyBaseMovement>().moveSpeed = 0;
+        yield return new WaitForSeconds(1.1f);
+        animator.SetBool("IsShooting", false);
+        Enemy.GetComponent<EnemyBaseMovement>().moveSpeed = 2;
+
+        Vector3 playerPosition = Player.transform.position;
         playerPosition.z = 0f; 
 
         Vector3 shootDirection = (playerPosition - shootingPoint.position).normalized;
@@ -33,7 +46,7 @@ public class EnemyShooting : MonoBehaviour
         {
             bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<EnemyBullet>().speed;
         }
-        yield return new WaitForSeconds(Random.Range(1f,3f));
+        yield return new WaitForSeconds(Random.Range(2f,4f));  
         waiting = false;
     }
 }

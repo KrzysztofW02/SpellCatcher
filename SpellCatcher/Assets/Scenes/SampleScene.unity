@@ -2110,7 +2110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 87.12, y: -4.9}
+  m_AnchoredPosition: {x: 87.12, y: -4.899994}
   m_SizeDelta: {x: 54.53, y: 44.15}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &454050176
@@ -2627,7 +2627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -340.99997, y: -129.99998}
+  m_AnchoredPosition: {x: -341.00006, y: -130.00003}
   m_SizeDelta: {x: -721.78, y: -276.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &525925085
@@ -2728,7 +2728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -70, y: -5.85}
+  m_AnchoredPosition: {x: -70, y: -5.850006}
   m_SizeDelta: {x: 71.82, y: 32.46}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &545693846
@@ -3830,7 +3830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.22002, y: -5.8499985}
+  m_AnchoredPosition: {x: 86.22002, y: -5.850006}
   m_SizeDelta: {x: 54.53, y: 44.15}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &956571005
@@ -5204,8 +5204,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010348002, y: -0.3328387}
-  m_Size: {x: 0.4799436, y: 0.8334796}
+  m_Offset: {x: -0.007225196, y: -0.30785677}
+  m_Size: {x: 0.34878892, y: 0.6710977}
   m_Direction: 0
 --- !u!1 &1257322427
 GameObject:

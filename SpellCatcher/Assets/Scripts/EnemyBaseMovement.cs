@@ -27,6 +27,14 @@ public class EnemyBaseMovement : MonoBehaviour
             playerPosition = playerObject.transform.position;
             Vector2 direction = (playerPosition - RigidBody.position).normalized;
             Vector2 velocity = direction*moveSpeed;
+            if(direction.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
 
             RigidBody.velocity = velocity;
 
