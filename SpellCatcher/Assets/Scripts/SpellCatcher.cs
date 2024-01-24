@@ -17,34 +17,40 @@ public class SpellCatcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsOnCooldown == false)
         {
             GetAllObjectsInTrigger();
-            for(int i = 0; i < TriggerList.Count; i++)
+
+            foreach (var item in TriggerList)
             {
-                var item = TriggerList[i];
+                if (item == null)
+                {
+                    continue;
+                }
+
                 if (item.GetComponent<EnemyBullet>() != null)
                 {
                     Destroy(item);
                     SpellCatched();
-                    TriggerList.Remove(item);
                 }
                 else if (item.GetComponent<EnemyBase>() != null)
                 {
                     item.GetComponent<EnemyBase>().TakeDamage(5);
                     SpellCatched();
-                    TriggerList.Remove(item);
                 }
                 else if (item.GetComponent<DestroyableItem>() != null)
                 {
                     item.GetComponent<DestroyableItem>().TakeDamage(5);
                     SpellCatched();
-                } 
+                }
             }
+
+            TriggerList.Clear();
         }
     }
+
 
     public void GetAllObjectsInTrigger()
     {
         TriggerList.Clear();
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1f);
         foreach (Collider2D collider in colliders)
         {
             TriggerList.Add(collider.gameObject);
@@ -67,8 +73,10 @@ public class SpellCatcher : MonoBehaviour
     }
     public void IsUsed()
     {
+        StopCoroutine("CooldownCounter");
         StartCoroutine(CooldownCounter());
     }
+
     IEnumerator CooldownCounter()
     {
         IsOnCooldown = true;
@@ -80,6 +88,6 @@ public class SpellCatcher : MonoBehaviour
         }
 
         IsOnCooldown = false;
-        Debug.Log("cooldown");
+        //Debug.Log("cooldown");
     }
 }
