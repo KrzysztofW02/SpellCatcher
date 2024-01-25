@@ -57,7 +57,8 @@ public class GameInfo : MonoBehaviour
         src = GameObject.FindGameObjectWithTag("SRC2").GetComponent<AudioSource>();
         src.clip = sfx1;
         src.volume = 0.7f;
-        src.Play();
+        src.loop = false;
+        InvokeRepeating("RestartMusic", 0, src.clip.length);
 
         Button button = HPButton.GetComponent<Button>();
         if (button != null)
@@ -85,6 +86,10 @@ public class GameInfo : MonoBehaviour
         //Increase displyed room number
         roomLevel.text = "Room: " + RoomNumber.ToString();
 
+    }
+    private void RestartMusic()
+    {
+        src.Play();
     }
 
     private void UpdateButtonVisibility()
