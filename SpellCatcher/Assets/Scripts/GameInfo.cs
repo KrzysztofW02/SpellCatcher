@@ -83,7 +83,6 @@ public class GameInfo : MonoBehaviour
     {
         RoomNumber++;
 
-        //Increase displyed room number
         roomLevel.text = "Room: " + RoomNumber.ToString();
 
     }
