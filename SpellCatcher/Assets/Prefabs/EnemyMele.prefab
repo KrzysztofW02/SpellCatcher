@@ -161,35 +161,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: 0.11381264
+      value: 0.13742076
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 0.047424283
+      value: -0.161114
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -0.098652825
+      value: 0.039060894
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 0.049904197
+      value: 0.065643005
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -0.25036806
+      value: -0.19528249
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -0.35618347
+      value: -0.15944913
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 0.176642
+      value: -0.008288175
       objectReference: {fileID: 0}
     - target: {fileID: 1529519597216632826, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -0.3574704
+      value: -0.39681724
       objectReference: {fileID: 0}
     - target: {fileID: 1907425253943903304, guid: 432299ccb373d2345846cd6e4083ec60, type: 3}
       propertyPath: m_Constraints

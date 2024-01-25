@@ -22,6 +22,8 @@ public class GameInfo : MonoBehaviour
     public GameObject PowerButton;
 
     public GameObject exitButton;
+    private AudioSource src;
+    public AudioClip sfx1;
 
     private bool isButtonVisible = false;
 
@@ -52,6 +54,10 @@ public class GameInfo : MonoBehaviour
 
     public void Start()
     {
+        src = GameObject.FindGameObjectWithTag("SRC2").GetComponent<AudioSource>();
+        src.clip = sfx1;
+        src.volume = 0.7f;
+        src.Play();
 
         Button button = HPButton.GetComponent<Button>();
         if (button != null)

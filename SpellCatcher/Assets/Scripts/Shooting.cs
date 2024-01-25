@@ -49,7 +49,7 @@ public class Shoot : MonoBehaviour
         bullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * bullet.GetComponent<Bullet>().speed;
 
-        player.Energy -= 1;
+        player.Energy -= 0.5f;
         energyBar.UpdateEnergyBar(player.Energy, player.MaxEnergy);
 
         isAttacking = false;
